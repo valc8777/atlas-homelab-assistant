@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Local databases
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Secrets / env files (defense in depth)
+.env
+*.env
+!*.env.example

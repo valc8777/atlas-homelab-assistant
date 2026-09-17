@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0f0d16">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="ATLAS">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ATLAS</title>
+    <link rel="manifest" href="/atlas/mobile/manifest.webmanifest?v=20260917.1">
+    <link rel="stylesheet" href="/atlas/mobile/app.css?v=20260917.1">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="top-bar">
+        <div class="left-actions">
+          <button id="clear-chat" class="icon-button" type="button" aria-label="New chat">＋</button>
+          <button id="open-panels" class="icon-button" type="button" aria-label="Open confirmations, tasks, notes, and logs">
+            ☰
+            <span id="confirmations-badge" class="badge" hidden>0</span>
+          </button>
+        </div>
+        <div class="title-block">
+          <h1><span class="brand-mark">✦</span> ATLAS</h1>
+          <div id="status" class="status"></div>
+        </div>
+        <button id="open-settings" class="icon-button" type="button" aria-label="Settings">⋯</button>
+      </header>
+
+      <section id="settings-view" class="settings-view">
+        <div class="settings-header">
+          <h2>Settings</h2>
+          <button type="button" id="settings-close" class="icon-button" aria-label="Close settings">✕</button>
+        </div>
+        <div class="settings-body">
+          <label>
+            Bearer token
+            <input id="token" type="password" autocomplete="off" placeholder="Paste ATLAS token">
+          </label>
+          <label>
+            Context
+            <select id="scope">
+              <option value="personal">personal</option>
+              <option value="operations">operations</option>
+              <option value="admin">admin</option>
+            </select>
+          </label>
+          <button id="save-settings" type="button" class="primary-button">Save on this device</button>
+          <div class="settings-footer">
+            <span>ATLAS mobile</span>
+            <span id="settings-version" class="muted-text">20260917.1</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="panels-view" class="panels-view">
+        <div class="panels-header">
+          <div id="panels-groups" class="panels-groups" role="tablist">
+            <button type="button" class="panel-group" data-group="organizer">Organizer</button>
+            <button type="button" class="panel-group active" data-group="automation">Automation</button>
+            <button type="button" class="panel-group" data-group="system">System</button>
+            <button type="button" class="panel-group" data-group="media">Media Request</button>
+          </div>
+          <button type="button" id="panels-close" class="icon-button" aria-label="Back to chat">✕</button>
+        </div>
+        <div id="panels-tabs" class="panels-tabs" role="tablist"></div>
+        <div id="confirmations-filter" class="status-filter" hidden>
+          <button type="button" class="status-filter-tab active" data-status="pending">Pending</button>
+          <button type="button" class="status-filter-tab" data-status="approved">Approved</button>
+          <button type="button" class="status-filter-tab" data-status="denied">Denied</button>
+        </div>
+        <div class="panels-body">
+          <div id="panels-add"></div>
+          <div id="panels-list" class="panels-list"></div>
+        </div>
+      </section>
+
+      <section id="messages" class="messages" aria-live="polite">
+        <div class="empty-state">
+          <div class="logo-mark">✦</div>
+          <h2>How can I help?</h2>
+          <p>Ask a question, create a reminder, add a task, or tap the mic for a spoken turn.</p>
+        </div>
+      </section>
+
+      <section id="voice-strip" class="voice-strip">
+        <div id="voice-state" class="voice-state">Tap 🎙 to talk.</div>
+        <button id="voice-stop" class="voice-stop" type="button" hidden>Stop</button>
+      </section>
+
+      <form id="composer" class="composer">
+        <textarea id="prompt" rows="1" placeholder="Message ATLAS"></textarea>
+        <button id="voice-once" class="mic-button" type="button" aria-label="Talk once">🎙</button>
+        <button id="send" class="send-button" type="submit" aria-label="Send">↑</button>
+      </form>
+    </main>
+    <script src="/atlas/mobile/app.js?v=20260917.1"></script>
+  </body>
+</html>

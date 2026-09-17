@@ -1,0 +1,11 @@
+{
+  "name": "ATLAS",
+  "short_name": "ATLAS",
+  "description": "Private homelab assistant",
+  "start_url": "/atlas/mobile/",
+  "scope": "/atlas/mobile/",
+  "display": "standalone",
+  "background_color": "#0f0d16",
+  "theme_color": "#7c3aed",
+  "icons": []
+}
