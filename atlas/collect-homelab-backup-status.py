@@ -35,7 +35,7 @@ def ts(epoch: int | None) -> str:
 
 
 def run_ssh(remote_cmd: str) -> str:
-    return run(["ssh", "root@100.70.171.62", remote_cmd])
+    return run(["ssh", "root@100.64.1.30", remote_cmd])
 
 
 def extract_failure_line(log_entries: list[dict]) -> str | None:

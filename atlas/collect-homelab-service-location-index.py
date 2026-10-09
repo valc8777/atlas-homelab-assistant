@@ -233,7 +233,7 @@ SERVICES = [
         "guest": "CT 102",
         "stack_path": "/",
         "config_path": "/etc/proxmox-backup",
-        "urls": ["https://100.123.180.115:8007"],
+        "urls": ["https://100.64.1.40:8007"],
     },
     {
         "service": "cync-lan",

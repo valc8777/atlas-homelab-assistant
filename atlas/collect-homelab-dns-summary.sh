@@ -8,7 +8,7 @@ OUT_JSON="$ROOT/homelab-dns-summary-2026-08-06.json"
 STAMP="$(date '+%Y-%m-%d %H:%M:%S %Z')"
 DOCKER_MAIN_SSH="${DOCKER_MAIN_SSH:-root@100.64.1.20}"
 AI_STACK_SSH="${AI_STACK_SSH:-cerebro@100.64.1.10}"
-PVE_SSH="${PVE_SSH:-root@100.70.171.62}"
+PVE_SSH="${PVE_SSH:-root@100.64.1.30}"
 
 docker_main="$(ssh "$DOCKER_MAIN_SSH" 'printf "Resolver configuration\n"; cat /etc/resolv.conf; printf "\nMagicDNS lookups\n"; for h in docker-main.example-tailnet.ts.net zola-cerebro.example-tailnet.ts.net ai-stack.example-tailnet.ts.net vaultwarden.example-tailnet.ts.net jellyfin.example-tailnet.ts.net nextcloud.example-tailnet.ts.net; do timeout 3 getent hosts "$h" 2>/dev/null || printf "UNRESOLVED\t%s\n" "$h"; done')"
 ai_stack="$(ssh "$AI_STACK_SSH" 'printf "Resolver configuration\n"; cat /etc/resolv.conf; printf "\nMagicDNS lookups\n"; for h in docker-main.example-tailnet.ts.net zola-cerebro.example-tailnet.ts.net ai-stack.example-tailnet.ts.net vaultwarden.example-tailnet.ts.net jellyfin.example-tailnet.ts.net nextcloud.example-tailnet.ts.net; do timeout 3 getent hosts "$h" 2>/dev/null || printf "UNRESOLVED\t%s\n" "$h"; done')"

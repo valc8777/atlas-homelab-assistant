@@ -8,7 +8,7 @@ OUT_JSON="$ROOT/homelab-runtime-status-2026-08-06.json"
 STAMP="$(date '+%Y-%m-%d %H:%M:%S %Z')"
 DOCKER_MAIN_SSH="${DOCKER_MAIN_SSH:-root@100.64.1.20}"
 AI_STACK_SSH="${AI_STACK_SSH:-cerebro@100.64.1.10}"
-PVE_SSH="${PVE_SSH:-root@100.70.171.62}"
+PVE_SSH="${PVE_SSH:-root@100.64.1.30}"
 
 docker_main_ps="$(ssh "$DOCKER_MAIN_SSH" "docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'")"
 ai_stack_ps="$(ssh "$AI_STACK_SSH" "docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'")"

@@ -32,10 +32,10 @@ SERVICES = (
     ("Open WebUI", "http://100.64.1.10:3000"),
     ("Jellyseerr (ai-stack)", "http://100.64.1.10:5055"),
     ("Piper TTS", "http://100.64.1.10:8000"),
-    ("PBS", "https://100.123.180.115:8007"),
-    ("Proxmox VE", "https://100.70.171.62:8006"),
+    ("PBS", "https://100.64.1.40:8007"),
+    ("Proxmox VE", "https://100.64.1.30:8006"),
 )
-HOSTS = (("docker_main", "root", "100.64.1.20"), ("ai_stack", "cerebro", "100.64.1.10"), ("proxmox", "root", "100.70.171.62"))
+HOSTS = (("docker_main", "root", "100.64.1.20"), ("ai_stack", "cerebro", "100.64.1.10"), ("proxmox", "root", "100.64.1.30"))
 
 
 def probe(name: str, url: str, timeout: int = 10, opener=None) -> dict:
@@ -111,7 +111,7 @@ def refresh_host_health(db_path: pathlib.Path, hosts=HOSTS) -> dict:
 
 
 def refresh_backup_status(db_path: pathlib.Path) -> dict:
-    raw = run_remote("root", "100.70.171.62", "backup-status")
+    raw = run_remote("root", "100.64.1.30", "backup-status")
     now_epoch = int(datetime.now(LOCAL_TZ).timestamp())
     last_ok = raw.get("last_ok")
     last_ok_epoch = int(last_ok.get("starttime") or 0) if isinstance(last_ok, dict) else 0

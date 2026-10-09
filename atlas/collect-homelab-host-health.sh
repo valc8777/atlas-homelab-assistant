@@ -9,7 +9,7 @@ STAMP="$(date '+%Y-%m-%d %H:%M:%S %Z')"
 
 docker_main="$(ssh root@100.64.1.20 "hostname && printf '\n'; uptime; printf '\n'; free -h; printf '\n'; df -h / /opt /mnt 2>/dev/null || true")"
 ai_stack="$(ssh cerebro@100.64.1.10 "hostname && printf '\n'; uptime; printf '\n'; free -h; printf '\n'; df -h / /opt /mnt 2>/dev/null || true; printf '\n'; nvidia-smi --query-gpu=name,temperature.gpu,utilization.gpu,memory.used,memory.total --format=csv,noheader,nounits 2>/dev/null || true")"
-pve="$(ssh root@100.70.171.62 "hostname && printf '\n'; uptime; printf '\n'; free -h; printf '\n'; df -h / /var/lib/vz /mnt 2>/dev/null || true")"
+pve="$(ssh root@100.64.1.30 "hostname && printf '\n'; uptime; printf '\n'; free -h; printf '\n'; df -h / /var/lib/vz /mnt 2>/dev/null || true")"
 
 cat > "$OUT_MD" <<EOF
 # Homelab Host Health

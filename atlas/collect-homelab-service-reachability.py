@@ -15,8 +15,8 @@ SERVICES = [
     ("Open WebUI", "http://100.64.1.10:3000"),
     ("Jellyseerr (ai-stack)", "http://100.64.1.10:5055"),
     ("Piper TTS", "http://100.64.1.10:8000"),
-    ("PBS", "https://100.123.180.115:8007"),
-    ("Proxmox VE", "https://100.70.171.62:8006"),
+    ("PBS", "https://100.64.1.40:8007"),
+    ("Proxmox VE", "https://100.64.1.30:8006"),
 ]
 
 ROOT = "/Users/valdemort/Projects/homelab"
